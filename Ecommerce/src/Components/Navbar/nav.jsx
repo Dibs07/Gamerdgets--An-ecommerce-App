@@ -23,7 +23,7 @@ const pages = [
   { name: 'SignUp', link: '/signup' }
   , { name: 'Login', link: '/login' }
 ];
-const settings = ['Profile', 'Account', 'Cart', 'Logout'];
+const settings = [{name:'Profile',link:'/dashboard'},{name:'Logout',link:'/logout'}];
 
 function Nav() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -139,10 +139,10 @@ function Nav() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
+              {settings.map((page) => (
+                <MenuItem key={page.name} onClick={handleCloseNavMenu} component={Link} to={page.link}>
+                <Typography textAlign="center">{page.name}</Typography>
+              </MenuItem>
               ))}
             </Menu>
           </Box>
