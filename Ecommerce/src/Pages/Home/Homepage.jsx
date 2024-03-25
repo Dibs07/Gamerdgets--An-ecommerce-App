@@ -1,10 +1,14 @@
+
+import HeroSection from "../../Components/HeroSection/Herosection";
 import Layout from "../../Components/Layout/Layout";
+
 
 const HomePage = () => {
     return (
         <Layout>
-            Home Page
+            <HeroSection/>
         </Layout>
+        
     );
 }
 
