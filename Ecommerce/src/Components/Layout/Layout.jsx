@@ -1,17 +1,16 @@
 import React from 'react'
-import Navbar from '../Navbar/navbar' 
-
-import Footer from '../Footer/footer'
+import Nav from '../Navbar/nav'
+import Foot from '../Footer/Foot'
 
 
 function Layout({children}) {
     return (
         <div>
-                <Navbar />
+                <Nav />
                 <div className='main-content min-h-screen'>
                         {children}
                 </div>
-                <Footer/>
+                <Foot/>
         </div>
     )
 }

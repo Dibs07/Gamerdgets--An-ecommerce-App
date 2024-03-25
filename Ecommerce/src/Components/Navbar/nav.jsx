@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Searchbar from "../Searchbar/Searchbar";
 
-const Navbar = () => {
+const Nav = () => {
     const navList = (
         <ul className="flex space-x-3 text-white font-bold text-md px-5 ">
             <li>
@@ -50,4 +50,4 @@ const Navbar = () => {
     );
 }
 
-export default Navbar;
+export default Nav;
