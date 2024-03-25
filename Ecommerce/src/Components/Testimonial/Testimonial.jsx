@@ -9,7 +9,7 @@ const Testimonial = () => {
                    
                     <h2 className=' text-center text-4xl text-white font-semibold mb-10' >What our <span className=' text-blue-700'>customers</span> are saying</h2>
 
-                    <div className="flex flex-wrap -m-4">
+                    <div className="flex flex-wrap -m-4 gap-x-0">
 
                         <div className="lg:w-1/3 lg:mb-0 mb-6 p-4 border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer hover:shadow-m hover:shadow-gray-200" >
                             <div className="h-full text-center">
@@ -22,7 +22,7 @@ const Testimonial = () => {
                                 <p className="text-white">Professional Gamer</p>
                             </div>
                         </div>
-                        <div className="hidden lg:w-1/12 lg:mb-0 mb-6"></div>
+                       
                         <div className="lg:w-1/3 lg:mb-0 mb-6 p-4 border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer hover:shadow-l hover:shadow-gray-200">
                             <div className="h-full text-center">
                                 <img alt="testimonial" className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"  src="https://i.ibb.co/kxVkMZW/image.png" />

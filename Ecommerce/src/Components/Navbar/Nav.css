@@ -1,0 +1,19 @@
+@media (max-width: 499px) {
+    .lg\:hidden {
+      display: block !important;
+    }
+  }
+  
+  @media (min-width: 500px) {
+    .lg\:hidden {
+      display: none !important;
+    }
+  }
+     /* <li>
+                <Link to={'/'}>Admin</Link>
+            </li> */
+
+      /* logout */
+      /* <li>
+                logout
+            </li> */
