@@ -19,7 +19,9 @@ import AdbIcon from '@mui/icons-material/Adb';
 const pages = [
   { name: 'Home', link: '/' },
   { name: 'All Products', link: '/allproduct' },
-  { name: 'Cart(0)', link: '/cart' }
+  { name: 'Cart(0)', link: '/cart' },
+  { name: 'SignUp', link: '/signup' }
+  , { name: 'Login', link: '/login' }
 ];
 const settings = ['Profile', 'Account', 'Cart', 'Logout'];
 
