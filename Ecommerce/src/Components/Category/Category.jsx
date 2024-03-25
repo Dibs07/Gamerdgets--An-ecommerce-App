@@ -32,7 +32,13 @@ const category = [
 
 const Category = () => {
     return (
+        <>
+            
         <div className="mt-5">
+        <div className="">
+                <h1 className=" text-center mb-5 text-4xl text-white font-semibold">Explore Categories</h1>
+            </div>
+
             <div className="flex overflow-x-scroll lg:justify-center hide-scroll-bar">
                 {category.map((item, index) => (
                     <div key={index} className="px-3 lg:px-10">
@@ -41,11 +47,12 @@ const Category = () => {
                                 <img src={item.image} alt="img" />
                             </div>
                         </div>
-                        <h1 className='text-sm lg:text-lg text-center font-medium title-font first-letter:uppercase'>{item.name}</h1>
+                        <h1 className='text-sm lg:text-lg text-center text-white font-medium title-font first-letter:uppercase'>{item.name}</h1>
                     </div>
                 ))}
             </div>
         </div>
+        </>
     );
 }
 

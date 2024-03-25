@@ -1,4 +1,5 @@
 import { Button } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
     return (
@@ -8,7 +9,7 @@ const HeroSection = () => {
                     <h1 className="text-6xl font-bold text-white">Welcome to GamerGadgets</h1>
                     <p className="text-3xl text-white">The best place to buy gaming gadgets</p>
                     <div className="flex justify-center" style={{marginTop:"1rem"}}>
-                        <Button
+                     <Button
                             size="lg"
                             variant="outlined"
                             color="white"
