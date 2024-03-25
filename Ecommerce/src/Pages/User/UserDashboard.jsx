@@ -17,6 +17,7 @@ const products = [
 const UserDashboard = () => {
     const user = JSON.parse(localStorage.getItem('users'));
     //console.log(user);
+    
     const navigate = useNavigate();
     return (
         <>
