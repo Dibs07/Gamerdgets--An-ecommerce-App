@@ -32,8 +32,8 @@ const AdminDashboard = () => {
                     </div>
 
                     <div className="">
-                        <h1 className=" text-center text-lg text-white"><span className=" font-bold">Name :</span> Kamal Nayan Upadhyay</h1>
-                        <h1 className=" text-center text-lg text-white"><span className=" font-bold">Email :</span> test@gmail.com</h1>
+                        <h1 className=" text-center text-lg text-white"><span className=" font-bold">Name :</span> Dibakar Banerjee</h1>
+                        <h1 className=" text-center text-lg text-white"><span className=" font-bold">Email :</span> banerjeedibs@gmail.com</h1>
                     </div>
                 </div>
             </div>

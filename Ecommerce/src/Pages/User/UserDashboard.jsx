@@ -16,6 +16,7 @@ const products = [
 
 const UserDashboard = () => {
     const user = JSON.parse(localStorage.getItem('users'));
+    //console.log(user);
     const navigate = useNavigate();
     return (
         <>
@@ -31,8 +32,8 @@ const UserDashboard = () => {
                         </div>
                         
                         <div className="">
-                            <h1 className=" text-center text-lg"><span className=" font-bold">Name :</span> Kamal Nayan Upadhyay</h1>
-                            <h1 className=" text-center text-lg"><span className=" font-bold">Email :</span> test@gmail.com</h1>
+                            <h1 className=" text-center text-lg"><span className=" font-bold">Name :</span> {user.firstname} {user.lastname}</h1>
+                            <h1 className=" text-center text-lg"><span className=" font-bold">Email :</span> {user.email}</h1>
                         </div>
                     </div>
                 </div>
