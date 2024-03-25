@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import Homepage from "./Pages/Home/Homepage";
 import Nopage from "./Pages/Nopage/Nopage";
-
+import "./App.css";
 const App = () => {
   return (
     <div>
