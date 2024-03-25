@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Layout from "../../Components/Layout/Layout";
 const products = [
     {
@@ -14,8 +15,11 @@ const products = [
 ]
 
 const UserDashboard = () => {
+    const user = JSON.parse(localStorage.getItem('users'));
+    const navigate = useNavigate();
     return (
-        <Layout>
+        <>
+        {user?<><Layout>
             <div className=" container mx-auto px-4 py-5 lg:py-8" >
          
                 <div className="top ">
@@ -109,7 +113,8 @@ const UserDashboard = () => {
                     </div>
                 </div>
             </div>
-        </Layout>
+        </Layout></>:(navigate('/login'))}
+        </>
     );
 }
 

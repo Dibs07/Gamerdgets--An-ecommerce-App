@@ -43,7 +43,7 @@ return (
                 type="text"
                 placeholder='Search here'
                 onChange={(e) => setSearch(e.target.value)}
-                className='bg-gray-200 placeholder-gray-400 rounded-lg px-2 py-2 w-52 lg:w-96 md:w-96 outline-none text-black'
+                className='bg-gray-200 placeholder-gray-400 rounded-lg px-2 py-2 w-44 lg:w-102 md:w-96 outline-none text-black'
             />
         </div>
 
@@ -56,7 +56,7 @@ return (
                                 <div key={index} className="py-2 px-2">
                                     <div className="flex items-center gap-2">
                                         <img className="w-10" src={item.image} alt="" />
-                                        {item.name}
+                                        <p className="text-black font-bold">{item.name}</p>
                                     </div>
                                 </div>
                             ))}

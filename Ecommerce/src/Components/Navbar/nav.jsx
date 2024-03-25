@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link,useNavigate} from "react-router-dom";
 import Searchbar from "../Searchbar/Searchbar";
 
 import * as React from 'react';
@@ -20,29 +20,35 @@ const pages = [
   { name: 'Home', link: '/' },
   { name: 'All Products', link: '/allproduct' },
   { name: 'Cart(0)', link: '/cart' },
-  { name: 'SignUp', link: '/signup' }
-  , { name: 'Login', link: '/login' }
+
 ];
-const settings = [{name:'Profile',link:'/dashboard'},{name:'Logout',link:'/logout'}];
+
 
 function Nav() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
-
+  
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
+  
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const user = JSON.parse(localStorage.getItem('users'));
+  const navigate = useNavigate();
+  const logout = () => {
+    localStorage.clear('users');
+    navigate("/login")
+}
+
+
 
   return (
     <AppBar position="static" style={{background: 'linear-gradient(to right, #4a148c, #ff8f00)'}}>
@@ -63,7 +69,7 @@ function Nav() {
               textDecoration: 'none',
             }}
           >
-            GamerGadgets
+            Gamerdgets
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -117,7 +123,7 @@ function Nav() {
           </Box>
          <Searchbar />  
          
-          <Box sx={{ flexGrow: 0 }}>
+          {user ? <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -139,13 +145,20 @@ function Nav() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((page) => (
-                <MenuItem key={page.name} onClick={handleCloseNavMenu} component={Link} to={page.link}>
-                <Typography textAlign="center">{page.name}</Typography>
+              
+                <MenuItem key="Profile" component={Link} onClick={handleCloseNavMenu} to={user.role=="user"? "/dashboard":"/admin"}>
+                <Typography textAlign="center">Profile</Typography>
               </MenuItem>
-              ))}
+              <MenuItem onClick={logout}>
+                <Typography textAlign="center">Logout</Typography></MenuItem>
             </Menu>
+          </Box>:
+          <Box display="flex" marginLeft={1}>
+          <Button component={Link} fullWidth to="/login" variant="contained" color="secondary">
+          Signin
+        </Button>
           </Box>
+          }
         </Toolbar>
 
       </Container>

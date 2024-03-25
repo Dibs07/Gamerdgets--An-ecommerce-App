@@ -4,9 +4,16 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import ProductDetail from './ProductDetail';
 import OrderDetail from './OrderDetail';
 import UserDetail from './UserDetail';
+import Nav from '../../Components/Navbar/nav';
+import Foot from '../../Components/Footer/Foot';
+import { useNavigate } from 'react-router-dom';
 
 const AdminDashboard = () => {
+    const user = JSON.parse(localStorage.getItem('users'));
+    const navigate = useNavigate();
     return (
+        <>
+        {user.role=="admin"?<><Nav />
         <div>
         {/* Top */}
         <div className="top mb-5 px-5 mt-5">
@@ -78,6 +85,8 @@ const AdminDashboard = () => {
             </div>
         </div>
     </div>
+    <Foot /></>:(navigate('/login'))}
+    </>
     );
 }
 
