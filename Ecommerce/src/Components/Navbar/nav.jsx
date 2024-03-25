@@ -1,56 +1,6 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Searchbar from "../Searchbar/Searchbar";
 
-// const Nav = () => {
-//     const navList = (
-//         <ul className="flex space-x-3 text-white font-bold text-md px-5 ">
-//             <li>
-//                 <Link to={'/'}>Home</Link>
-//             </li>
-//             <li>
-//                 <Link to={'/allproduct'}>All Product</Link>
-//             </li>
-//             <li>
-//                 <Link to={'/signup'}>Signup</Link>
-//             </li>
-//             <li>
-//                 <Link to={'/'}>Kamal</Link>
-//             </li>
-//             {/* <li>
-//                 <Link to={'/'}>Admin</Link>
-//             </li> */}
-
-//             {/* logout */}
-//             {/* <li>
-//                 logout
-//             </li> */}
-
-//             <li>
-//                 <Link to={'/cart'}>
-//                     Cart(0)
-//                 </Link>
-//             </li>
-//         </ul>
-//     )
-//     return (
-//       <nav className="sticky top-0" style={{background: 'linear-gradient(to right, #4a148c, #ff8f00)'}}>
-//         <div className="lg:flex lg:justify-between items-center py-3 lg:px-3 ">
-//           <div className="left py-3 lg:py-0">
-//             <Link to={'/'}>
-//               {/* <img src="/logo.jpg" alt="ShopKaro Logo" className="h-20 w-20" /> */}
-//             <h2 className="font-bold text-white text-2xl text-center">GamerGadgets</h2>
-//             </Link>
-//           </div>
-//           <div className="right flex justify-center mb-4 lg:mb-0">
-//             {navList}
-//           </div>
-//           <Searchbar />
-//         </div>
-//       </nav>
-//     );
-// }
-
-// export default Nav;
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -66,7 +16,11 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = ['Home', 'All Products', 'Cart(0)'];
+const pages = [
+  { name: 'Home', link: '/' },
+  { name: 'All Products', link: '/allproduct' },
+  { name: 'Cart(0)', link: '/cart' }
+];
 const settings = ['Profile', 'Account', 'Cart', 'Logout'];
 
 function Nav() {
@@ -92,17 +46,15 @@ function Nav() {
     <AppBar position="static" style={{background: 'linear-gradient(to right, #4a148c, #ff8f00)'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
           <img src="/logo.jpg" alt="ShopKaro Logo" className="h-10 w-10" />
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            component={Link}
+            to="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              
               fontWeight: 700,
               letterSpacing: '.1rem',
               color: 'inherit',
@@ -142,8 +94,8 @@ function Nav() {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.name} onClick={handleCloseNavMenu} component={Link} to={page.link}>
+                  <Typography textAlign="center">{page.name}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -152,11 +104,12 @@ function Nav() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
-                key={page}
-                onClick={handleCloseNavMenu}
+                key={page.name}
+                component={Link}
+                to={page.link}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                {page}
+                {page.name}
               </Button>
             ))}
           </Box>
@@ -198,4 +151,3 @@ function Nav() {
   );
 }
 export default Nav;
-
