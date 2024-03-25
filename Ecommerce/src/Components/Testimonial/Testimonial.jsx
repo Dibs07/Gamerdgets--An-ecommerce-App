@@ -22,6 +22,7 @@ const Testimonial = () => {
                                 <p className="text-white">Professional Gamer</p>
                             </div>
                         </div>
+                        <div className="hidden lg:w-1/12 lg:mb-0 mb-6"></div>
                         <div className="lg:w-1/3 lg:mb-0 mb-6 p-4 border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer hover:shadow-l hover:shadow-gray-200">
                             <div className="h-full text-center">
                                 <img alt="testimonial" className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100"  src="https://i.ibb.co/kxVkMZW/image.png" />
@@ -30,19 +31,19 @@ const Testimonial = () => {
                                 </p>
                                 <span className="inline-block h-1 w-10 rounded bg-blue-500 mt-6 mb-4" />
                                 <h2 className="text-white font-bold title-font tracking-wider text-sm uppercase">Sayan Biswas</h2>
-                                <p className="text-white">Senior Product Designer</p>
+                                <p className="text-white">Pes Player</p>
                             </div>
                         </div>
-
+                     
                         <div className="lg:w-1/3 lg:mb-0 mb-6 p-4 border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer hover:shadow-l hover:shadow-gray-200">
                             <div className="h-full text-center">
                                 <img alt="testimonial" className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="https://i.ibb.co/hV3m83R/image.png" />
                                 <p className="leading-relaxed text-white">
-                                    This is the best platform for buying gaming gadgets. I bought a gaming console and it was delivered on time. The quality of the product is also very good. I would recommend this platform to all the gamers out there.
+                                    This website is the best for buying gaming equipments. I bought a gaming chair and it was delivered on time. The quality of the product is also very good. I would recommend this platform to all the gamers out there.
                                 </p>
                                 <span className="inline-block h-1 w-10 rounded bg-blue-500 mt-6 mb-4" />
-                                <h2 className="text-white font-bold title-font tracking-wider text-sm uppercase">Swastik</h2>
-                                <p className="text-white">Senior Product Designer</p>
+                                <h2 className="text-white font-bold title-font tracking-wider text-sm uppercase">Sayan Adhikari</h2>
+                                <p className="text-white">Professional Gaming Coach</p>
                             </div>
                         </div>
                     </div>
