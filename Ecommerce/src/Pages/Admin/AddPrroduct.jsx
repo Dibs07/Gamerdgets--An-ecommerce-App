@@ -10,31 +10,24 @@ import Layout from "../../Components/Layout/Layout";
 const categoryList = [
     {
         name: 'Video Games',
-
     },
     {
         name: 'Gaming Console',
-
     },
     {
         name: 'Gaming PC',
-
     },
     {
         name: 'Gaming Mobile',
-
     },
     {
         name: 'Gaming Laptop',
-
     },
     {
         name: 'Gaming Chair',
-
     },
     {
         name: 'Gaming Headphone',
-
     },
 ]
 
@@ -51,7 +44,7 @@ const AddProductPage = () => {
         category: "",
         description: "",
         quantity: 1,
-        time: Timestamp.now(),
+        //time: Timestamp.now(),
         date: new Date().toLocaleString(
             "en-US",
             {

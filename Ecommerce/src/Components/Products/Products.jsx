@@ -1,14 +1,36 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router";
 import myContext from "../../context/myContext";
+import { useDispatch, useSelector } from "react-redux";
+import toast from "react-hot-toast";
+import { addToCart, deleteFromCart } from "../../redux/cartSlice";
+
 
 const Products = () => {
     const navigate = useNavigate();
     const context = useContext(myContext);
-    const {getAllProduct} = context;
+    const { getAllProduct } = context;
+    const cartItems = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
+
+
+    const addCart = (item) => {
+        console.log(item)
+        dispatch(addToCart(item));
+        toast.success("Add to cart")
+    }
+
+    const deleteCart = (item) => {
+        dispatch(deleteFromCart(item));
+        toast.success("Delete cart")
+    }
+    console.log(cartItems)
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+    }, [cartItems])
     return (
         <div className="mt-10">
-            
+
             <div className="">
                 <h1 className=" text-center mb-5 text-white text-4xl font-semibold">Bestselling Products</h1>
             </div>
@@ -17,17 +39,17 @@ const Products = () => {
                 <div className="container px-5 py-5 mx-auto">
                     <div className="flex flex-wrap -m-4">
                         {getAllProduct.map((item, index) => {
-                            const { id, title, price,productImageUrl } = item
+                            const { id, title, price, productImageUrl } = item
                             return (
                                 <div key={index} className="p-4 w-full md:w-1/4">
                                     <div className="h-full border border-gray-300 rounded-xl overflow-hidden shadow-md cursor-pointer">
-                                            <img
-                                             onClick={()=> navigate(`/productinfo/${id}`)}
-                                                className="lg:h-80  h-96 w-full"
-                                                src={productImageUrl}
-                                                alt="blog"
-                                                style={{background:"white"}}
-                                            />
+                                        <img
+                                            onClick={() => navigate(`/productinfo/${id}`)}
+                                            className="lg:h-80  h-96 w-full"
+                                            src={productImageUrl}
+                                            alt="blog"
+                                            style={{ background: "white" }}
+                                        />
                                         <div className="p-6">
                                             <h2 className="tracking-widest text-xs title-font font-bold text-white mb-1">
                                                 GamerGadgets
@@ -40,9 +62,14 @@ const Products = () => {
                                             </h1>
 
                                             <div className="flex justify-center ">
-                                                <button className=" bg-blue-500 hover:bg-blue-700 w-full text-white py-[4px] rounded-lg font-bold">
-                                                    Add To Cart
-                                                </button>
+                                                {cartItems?.some((p) => p.id === item.id)
+
+                                                    ? <button onClick={() => deleteCart(item)} className=" bg-blue-500 hover:bg-blue-700 w-full text-white py-[4px] rounded-lg font-bold">
+                                                        Delete from Cart
+                                                    </button> :
+                                                    <button onClick={() => addCart(item)} className=" bg-blue-500 hover:bg-blue-700 w-full text-white py-[4px] rounded-lg font-bold">
+                                                        Add To Cart
+                                                    </button>}
                                             </div>
                                         </div>
                                     </div>
