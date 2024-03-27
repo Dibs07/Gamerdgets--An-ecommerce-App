@@ -84,7 +84,7 @@ const AddProductPage = () => {
     }
     return (
         <>
-    {user.role =='admin' ? <Layout>
+    {user && user.role && user.role =='admin' ? <Layout>
     <div>
         <div className='flex justify-center items-center h-screen'>
             {loading && <Loader />}
@@ -188,7 +188,7 @@ const AddProductPage = () => {
                 </div>
             </div>
         </div>
-    </div></Layout>:null}
+    </div></Layout>:navigate('/')}
     </>
     );
 }

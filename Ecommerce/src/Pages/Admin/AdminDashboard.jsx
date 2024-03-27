@@ -13,7 +13,7 @@ const AdminDashboard = () => {
     const navigate = useNavigate();
     return (
         <>
-        {user.role=="admin"?<><Nav />
+        {user && user.role && user.role=="admin"?<><Nav />
         <div>
         {/* Top */}
         <div className="top mb-5 px-5 mt-5">
@@ -85,7 +85,7 @@ const AdminDashboard = () => {
             </div>
         </div>
     </div>
-    <Foot /></>:(navigate('/login'))}
+    <Foot /></>:navigate('/')}
     </>
     );
 }

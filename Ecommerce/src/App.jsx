@@ -17,6 +17,7 @@ import AddProductPage from "./Pages/Admin/AddPrroduct";
 import Updateproduct from "./Pages/Admin/Updateproduct";
 import MyState from "./context/myState";
 import { Toaster } from "react-hot-toast";
+import CategoryPage from "./Pages/category/Categorypage";
 const App = () => {
   return (
     <div>
@@ -25,7 +26,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/*" element={<Nopage />} />
-          <Route path="/productinfo" element={<ProductInfo />} />
+          <Route path="/productinfo/:id" element={<ProductInfo />} />
           <Route path="/cart" element={<Cartpage/>} />
           <Route path="/allproduct" element={<Allproduct/>} />
           <Route path="/signup" element={<Signup/>} />
@@ -33,7 +34,8 @@ const App = () => {
           <Route path="/dashboard" element={<UserDashboard/>} />
           <Route path="/admin" element={<AdminDashboard/>} />
           <Route path="/addproduct" element={<AddProductPage/>} />
-          <Route path="/update" element={<Updateproduct/>} />
+          <Route path="/update/:id" element={<Updateproduct/>} />
+          <Route path="/category/:categoryname" element={<CategoryPage />} />
         </Routes>
         
       <Toaster/>

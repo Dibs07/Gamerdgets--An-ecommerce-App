@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import "./Category.css";
 const category = [
     {
@@ -31,6 +32,7 @@ const category = [
 ]
 
 const Category = () => {
+    const navigate = useNavigate();
     return (
         <>
             
@@ -42,7 +44,7 @@ const Category = () => {
             <div className="flex overflow-x-scroll lg:justify-center hide-scroll-bar">
                 {category.map((item, index) => (
                     <div key={index} className="px-3 lg:px-10">
-                        <div className="w-24 h-24 lg:w-32 lg:h-32 max-w-xs rounded-full bg-blue-800 transition-all hover:bg-blue-400 cursor-pointer mb-1">
+                        <div onClick={()=>navigate(`/category/${item.name}`)} className="w-24 h-24 lg:w-32 lg:h-32 max-w-xs rounded-full bg-blue-800 transition-all hover:bg-blue-400 cursor-pointer mb-1">
                             <div className="flex justify-center mb-12">
                                 <img src={item.image} alt="img" />
                             </div>
