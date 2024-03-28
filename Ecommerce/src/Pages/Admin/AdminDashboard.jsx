@@ -7,10 +7,13 @@ import UserDetail from './UserDetail';
 import Nav from '../../Components/Navbar/nav';
 import Foot from '../../Components/Footer/Foot';
 import { useNavigate } from 'react-router-dom';
-
+import { useContext } from 'react';
+import myContext from '../../context/myContext';
 const AdminDashboard = () => {
     const user = JSON.parse(localStorage.getItem('users'));
     const navigate = useNavigate();
+    const context = useContext(myContext);
+    const {getAllProduct, getAllOrder,getAllUser} = context;
     return (
         <>
         {user && user.role && user.role=="admin"?<><Nav />
@@ -47,7 +50,7 @@ const AdminDashboard = () => {
                                 <div className="text-white w-12 h-12 mb-3 inline-block" >
                                 <FontAwesomeIcon icon={faObjectGroup} className="text-blue-900 w-12 h-12 mb-3 inline-block" />
                                 </div>
-                                <h2 className="title-font font-medium text-3xl text-white fonts1" >10</h2>
+                                <h2 className="title-font font-medium text-3xl text-white fonts1" >{getAllProduct.length}</h2>
                                 <p className=" text-white  font-bold" >Total Products</p>
                             </div>
                         </Tab>
@@ -57,8 +60,8 @@ const AdminDashboard = () => {
                                 <div className="text-white w-12 h-12 mb-3 inline-block" >
                                 <FontAwesomeIcon icon={faReorder} className="text-blue-900 w-12 h-12 mb-3 inline-block" />
                                 </div>
-                                <h2 className="title-font font-medium text-3xl text-white fonts1" >10</h2>
-                                <p className=" text-white  font-bold" >Total Order</p>
+                                <h2 className="title-font font-medium text-3xl text-white fonts1" >{getAllOrder.length}</h2>
+                                <p className=" text-white  font-bold" >Total Orders</p>
                             </div>
                         </Tab>
                
@@ -67,8 +70,8 @@ const AdminDashboard = () => {
                                 <div className="text-white w-12 h-12 mb-3 inline-block" >
                                 <FontAwesomeIcon icon={faPeopleGroup} className="text-blue-900 w-12 h-12 mb-3 inline-block" />
                                 </div>
-                                <h2 className="title-font font-medium text-3xl text-white fonts1" >10</h2>
-                                <p className=" text-white  font-bold" >Total Order</p>
+                                <h2 className="title-font font-medium text-3xl text-white fonts1" >{getAllUser.length}</h2>
+                                <p className=" text-white  font-bold" >Total Users</p>
                             </div>
                         </Tab>
                     </TabList>

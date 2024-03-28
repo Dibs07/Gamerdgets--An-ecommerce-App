@@ -94,7 +94,7 @@ const UpdateProductPage = () => {
       toast.success("Product Updated successfully")
       getAllProductFunction();
       setLoading(false)
-      navigate('/admin-dashboard')
+      navigate('/admin')
 
     } catch (error) {
       console.log(error)

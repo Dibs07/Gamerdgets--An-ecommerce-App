@@ -1,41 +1,14 @@
-import { useState } from "react";
-
-const searchData = [
-  {
-      name: 'Video Games',
-      image: 'https://i.ebayimg.com/images/g/bFgAAOSw0YFe~ifu/s-l1200.webp'
-  },
-  {
-      name: 'Gaming Console',
-      image: 'https://scale.coolshop-cdn.com/product-media.coolshop-cdn.com/235CN6/50a17a1c298e4c36819cf476d791c420.jpg/f/sony-playstation-5-dualsense-controller-white.jpg'
-  },
-  {
-      name: 'Gaming PC',
-      image: 'https://m.media-amazon.com/images/I/51bK4SfEMLL._AC_UF1000,1000_QL80_.jpg'
-  },
-  {
-      name: 'Gaming Mobile',
-      image: 'https://images-cdn.ubuy.co.in/63565a4db7369873ac133243-red-magic-6s-pro-gaming-phone.jpg'
-  },
-  {
-      name: 'Gaming Laptop',
-      image: 'https://m.media-amazon.com/images/I/51H9Br7KnXL._AC_UF1000,1000_QL80_.jpg'
-  },
-  {
-      name: 'Gaming Chair',
-      image: 'https://thesleepcompany.in/cdn/shop/files/GamingChair_3.jpg?v=1688993842&width=1445'
-  },
-  {
-      name: 'Gaming Headphone',
-      image: 'https://m.media-amazon.com/images/I/71BDfnzkrJL._AC_UF1000,1000_QL80_.jpg'
-  },
-]
+import { useContext, useState } from "react";
+import myContext from "../../context/myContext";
+import { useNavigate } from "react-router";
 
 const SearchBar = () => {
-
+    const context = useContext(myContext);
+    const { getAllProduct } = context
+const navigate = useNavigate();
    const [search, setSearch] = useState("");
 
-const filterSearchData = searchData.filter((obj) => obj.name.toLowerCase().includes(search.toLowerCase())).slice(0, 8);
+const filterSearchData = getAllProduct.filter((obj) => obj.title.toLowerCase().includes(search.toLowerCase())).slice(0, 8);
 return (
     <div className="">
         <div className="input flex justify-center">
@@ -53,10 +26,10 @@ return (
                     {filterSearchData.length > 0 ? (
                         <>
                             {filterSearchData.map((item, index) => (
-                                <div key={index} className="py-2 px-2">
+                                <div key={index} className="py-2 px-2"  onClick={() => navigate(`/productinfo/${item.id}`)}>
                                     <div className="flex items-center gap-2">
-                                        <img className="w-10" src={item.image} alt="" />
-                                        <p className="text-black font-bold">{item.name}</p>
+                                        <img className="w-10" src={item.productImageUrl} alt="" />
+                                        <p className="text-black font-bold">{item.title}</p>
                                     </div>
                                 </div>
                             ))}
