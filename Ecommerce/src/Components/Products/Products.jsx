@@ -15,7 +15,7 @@ const Products = () => {
 
 
     const addCart = (item) => {
-        console.log(item)
+     //   console.log(item)
         dispatch(addToCart(item));
         toast.success("Add to cart")
     }
@@ -24,7 +24,7 @@ const Products = () => {
         dispatch(deleteFromCart(item));
         toast.success("Delete cart")
     }
-    console.log(cartItems)
+  //  console.log(cartItems)
     useEffect(() => {
         localStorage.setItem('cart', JSON.stringify(cartItems));
     }, [cartItems])
@@ -62,7 +62,7 @@ const Products = () => {
                                             </h1>
 
                                             <div className="flex justify-center ">
-                                                {cartItems?.some((p) => p.id === item.id)
+                                                {cartItems.some((p) => p.id === item.id)
 
                                                     ? <button onClick={() => deleteCart(item)} className=" bg-blue-500 hover:bg-blue-700 w-full text-white py-[4px] rounded-lg font-bold">
                                                         Delete from Cart

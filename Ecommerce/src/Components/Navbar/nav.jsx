@@ -1,6 +1,6 @@
 import { Link,useNavigate} from "react-router-dom";
 import Searchbar from "../Searchbar/Searchbar";
-
+import { useSelector } from "react-redux";
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -16,12 +16,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 
-const pages = [
-  { name: 'Home', link: '/' },
-  { name: 'All Products', link: '/allproduct' },
-  { name: 'Cart(0)', link: '/cart' },
 
-];
 
 
 function Nav() {
@@ -47,8 +42,13 @@ function Nav() {
     localStorage.clear('users');
     navigate("/login")
 }
+const cartItems = useSelector((state) => state.cart);
+const pages = [
+  { name: 'Home', link: '/' },
+  { name: 'All Products', link: '/allproduct' },
+  { name: `Cart(${cartItems.length})`, link: '/cart' },
 
-
+];
 
   return (
     <AppBar position="static" style={{background: 'linear-gradient(to right, #4a148c, #ff8f00)'}}>
