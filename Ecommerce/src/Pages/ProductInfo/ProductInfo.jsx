@@ -108,7 +108,7 @@ const ProductInfo = () => {
                                     <div className="mb-6 " />
                                     <div className="flex flex-wrap items-center mb-6">
 
-                                        {cartItems.some((p) => p.id === id)
+                                        {cartItems.some((p) => p.id === product.id)
 
                                             ? <button onClick={() => deleteCart(product)} className=" bg-blue-500 hover:bg-blue-700 w-full text-white py-[4px] rounded-lg font-bold">
                                                 Delete from Cart

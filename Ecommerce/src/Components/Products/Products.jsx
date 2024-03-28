@@ -62,7 +62,7 @@ const Products = () => {
                                             </h1>
 
                                             <div className="flex justify-center ">
-                                                {cartItems.some((p) => p.id === item.id)
+                                                {cartItems?.some((p) => p.id === item.id)
 
                                                     ? <button onClick={() => deleteCart(item)} className=" bg-blue-500 hover:bg-blue-700 w-full text-white py-[4px] rounded-lg font-bold">
                                                         Delete from Cart
