@@ -38,7 +38,7 @@ const Products = () => {
             <section className="text-gray-600 body-font">
                 <div className="container px-5 py-5 mx-auto">
                     <div className="flex flex-wrap -m-4">
-                        {getAllProduct.map((item, index) => {
+                        {getAllProduct.slice(0,4).map((item, index) => {
                             const { id, title, price, productImageUrl } = item
                             return (
                                 <div key={index} className="p-4 w-full md:w-1/4">
